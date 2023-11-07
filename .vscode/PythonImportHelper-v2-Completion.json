@@ -1,0 +1,56 @@
+[
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "Jogador",
+        "kind": 6,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "class Jogador: # Ainda não dei uma funcionalidade pra esse classe.. mas logo mais ela tera, usando a função de randomizar nome e classe\n    def __init__(self, nome, classe):\n        self.nome = nome\n        self.classe = classe\nclass Equipamento: # A classe mais importante do projeto, contendo dentro dela as hierarquias relacionadas as classes, como: armamento, dano, tipo\n    def __init__(self, classe):\n        self.arma = ''\n        self.dano = 0\n        self.tipo = ''\n        self.classe = classe",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "Equipamento",
+        "kind": 6,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "class Equipamento: # A classe mais importante do projeto, contendo dentro dela as hierarquias relacionadas as classes, como: armamento, dano, tipo\n    def __init__(self, classe):\n        self.arma = ''\n        self.dano = 0\n        self.tipo = ''\n        self.classe = classe\n    def armamento(self): # Dentro desse escopo, temos as condicionais que armazenam os resultados inerentes a cada classe\n        if self.classe == 'Patrulheiro':\n            self.arma = 'Arco e Flecha'\n            self.dano = random.randint(10, 30)",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "AleatorizarNome",
+        "kind": 2,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "def AleatorizarNome(): # Uma simples função que contém uma variável armazenando uma lista, que é embaralhada e tem um resultado selecionado, algoritmo simples e eficaz, graças a biblioteca \"Random\"\n    listaNome = ['Tolric', 'HewFrith', 'Badic', 'Marmafrea', 'Egar', 'Thascas',\n             'Isenhal', 'Drax', 'Richethel', 'Bryt', 'Pabrand', 'Wenledryt']\n    randomiName = random.choice(listaNome)\n    return randomiName\ndef AleatorizarClasse(): # A mesma ideia, porém com classes ao invés de nomes, também parte crucial do esqueleto do sistema\n    listaClasse = ['Patrulheiro', 'Feiticeiro', 'Ladino', 'Guerreiro']\n    randomiClasse = random.choice(listaClasse)\n    return randomiClasse\ndef main(): # Função principal, responsável por ser o epicentro de todo o código, basicamente reunindo tudo para compilação final",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "AleatorizarClasse",
+        "kind": 2,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "def AleatorizarClasse(): # A mesma ideia, porém com classes ao invés de nomes, também parte crucial do esqueleto do sistema\n    listaClasse = ['Patrulheiro', 'Feiticeiro', 'Ladino', 'Guerreiro']\n    randomiClasse = random.choice(listaClasse)\n    return randomiClasse\ndef main(): # Função principal, responsável por ser o epicentro de todo o código, basicamente reunindo tudo para compilação final\n    randomizarClasse = AleatorizarClasse()\n    print(randomizarClasse)\n    armamento = Equipamento(randomizarClasse)\n    armamento.armamento()\n    armamento.listarArmamento()",
+        "detail": "src.main",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "def main(): # Função principal, responsável por ser o epicentro de todo o código, basicamente reunindo tudo para compilação final\n    randomizarClasse = AleatorizarClasse()\n    print(randomizarClasse)\n    armamento = Equipamento(randomizarClasse)\n    armamento.armamento()\n    armamento.listarArmamento()\nmain() # Chamada da função principal",
+        "detail": "src.main",
+        "documentation": {}
+    }
+]
