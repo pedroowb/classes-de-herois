@@ -33,6 +33,7 @@ class Equipamento: # A classe mais importante do projeto, contendo dentro dela a
             self.arma = 'Espada e Escudo'
             self.dano = random.randint(10, 30)
             self.tipo = 'Concussão e Curta-Distância'
+    
 
     def listarArmamento(self): # Uma função que tem como foco listar as condicionais da classe, dentro desse escopo é passado o self que contem dos os dados necessários
         print(f'Seu armamento é um(a) {self.arma}, e seu dano atualmente é de {self.dano} AD/AP')
@@ -47,20 +48,33 @@ def AleatorizarClasse(): # A mesma ideia, porém com classes ao invés de nomes,
     randomiClasse = random.choice(listaClasse)
     return randomiClasse
 
-def Titulo(): # Função para criar um título mais agradável de se visualizar no prompt
-    maintitle = print('=' * 50) 
+                      
+def main(): # Função principal, responsável por ser o epicentro de todo o código, basicamente reunindo tudo para compilação final
+    print('=' * 50) 
     title = 'GERADOR DE HEROI RPG'
     print(f'{title:=^50}'.format(title))
     print('=' * 50)
-    return maintitle
-
-def main(): # Função principal, responsável por ser o epicentro de todo o código, basicamente reunindo tudo para compilação final
-    maintitle = Titulo()
-    randomizarClasse = AleatorizarClasse()
-    print(randomizarClasse)
-    armamento = Equipamento(randomizarClasse)
-    armamento.armamento()
-    armamento.listarArmamento()
     
-
-main() # Chamada da função principal
+    nome = AleatorizarNome()
+    classe = AleatorizarClasse()
+    player_equipaments = Equipamento(classe)
+    player_equipaments.armamento()
+    
+    while True:
+        print("O que deseja ver?")
+        print("[1] - Nome e Classe")
+        print("[2] - Arma, Dano e Tipo de Dano")
+        print("[3] - Sair")
+        
+        escolha = str(input('Selecione uma opção: '))
+        if escolha == '1':
+            print(f'O nome e classe do seu herói são: {nome}, {classe}')
+        elif escolha == '2':
+            print(f'Aqui está a lista solicitada:\n{player_equipaments.arma},\n{player_equipaments.dano},\n{player_equipaments.tipo}')
+        elif escolha == '3':
+            print('Saindo do programa')
+            break
+        else:
+            print('Escolha uma opção válida.')
+    
+main()
